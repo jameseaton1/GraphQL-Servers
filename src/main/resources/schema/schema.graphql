@@ -1,0 +1,25 @@
+type Query {
+    events(nameFilter: String): [Event]
+}
+
+type Event @key(fields: "id") {
+    id: ID
+    name: String
+    markets: [Market!]
+}
+
+type Market @key(fields: "id") {
+    id: ID
+    name: String
+    typeId: Int
+    eventId: Int
+    selections: [Selection!]
+}
+
+type Selection @key(fields: "id"){
+    id: ID
+    name: String
+    price: String
+    marketId: Int
+}
+
